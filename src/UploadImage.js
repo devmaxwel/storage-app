@@ -1,4 +1,4 @@
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage';
 import React, { useState } from 'react'
 import { storage } from './firebaseConfig';
 
@@ -8,9 +8,9 @@ const UploadImage = () => {
     const [image, setImage] = useState("");
 
     const handleUpload =(e)=> {
-        e.preventDefault();
-        const file = e.target[0].files[0];
-       uploadFile(file);
+         e.preventDefault();
+         const file = e.target[0].files[0];
+         uploadFile(file);
        
     }
 
@@ -20,6 +20,7 @@ const UploadImage = () => {
 
         }else{
             const storageRef = ref(storage, `files/${file.name}`);
+
             const uploadImage = uploadBytesResumable(storageRef, file);
 
             // uploadImage will have an event
